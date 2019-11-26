@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'accounts/sign_in'
+  get 'accounts/sign_up'
   root 'home#home'
   get 'contact', to: 'home#contact'
   devise_for :users
