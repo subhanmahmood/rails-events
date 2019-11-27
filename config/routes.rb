@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   resources :events
   get 'accounts/sign_in'
   get 'accounts/sign_up'
