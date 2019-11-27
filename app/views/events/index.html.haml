@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th User
       %th Title
       %th Location
       %th Date
@@ -14,6 +15,7 @@
   %tbody
     - @events.each do |event|
       %tr
+        %td= event.user
         %td= event.title
         %td= event.location
         %td= event.date
