@@ -1,13 +1,16 @@
 require 'test_helper'
-
 class HomeControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   test "should get home" do
-    get home_home_url
+    sign_in users(:one)
+    get '/'
     assert_response :success
   end
 
   test "should get contact" do
-    get home_contact_url
+    sign_in users(:one)
+    get '/contact'
     assert_response :success
   end
 
