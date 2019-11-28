@@ -1,29 +1,27 @@
-%h1 Listing events
-
-%table
-  %thead
-    %tr
-      %th User
-      %th Title
-      %th Location
-      %th Date
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.user.email
-        %td= event.title
-        %td= event.location
-        %td= event.date
-        %td= event.description
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Event', new_event_path
+%div
+  
+  
+  %div.container
+    %div.row
+      %div.col-md-4.col-md-offset-4
+        %h1 All events
+        - @events.each do |event|
+          %div.panel.panel-default
+            %div.panel-heading
+              %h3.panel-title
+                Name: 
+                %span= link_to event.title, event
+                = link_to event, method: :delete, data: { confirm: 'Are you sure?' } do
+                  %span.glyphicon.glyphicon-trash.right
+                = link_to edit_event_path(event) do
+                  %span.glyphicon.glyphicon-pencil.right
+                
+            %div.panel-body
+              %b What?
+              %p= event.description
+              %b Where?
+              %p= event.location
+              %b When?
+              %p= event.date
+        = link_to new_event_path do
+          %button.btn.btn-primary New
