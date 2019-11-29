@@ -1,21 +1,24 @@
 %p#notice= notice
+%div.container
+  %div.row
+    %div.col-md-4.col-md-offset-4
+      %div.panel.panel-default
+        %div.panel-heading
+          %h3.panel-title
+            Name: 
+            %span= link_to @event.title, @event
+            = link_to @event, method: :delete, data: { confirm: 'Are you sure?' } do
+              %span.glyphicon.glyphicon-trash.right
+            = link_to edit_event_path(@event) do
+              %span.glyphicon.glyphicon-pencil.right
+            
+        %div.panel-body
+          %b What?
+          %p= @event.description
+          %b Where?
+          %p= @event.location
+          %b When?
+          %p= @event.date
 
-%p
-  %b User:
-  = @event.user
-%p
-  %b Title:
-  = @event.title
-%p
-  %b Location:
-  = @event.location
-%p
-  %b Date:
-  = @event.date
-%p
-  %b Description:
-  = @event.description
-
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+      = link_to new_task_path(event_id: @event) do
+        %button.btn.btn-default Add Task

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:new, :create]
 
   # GET /tasks
   # GET /tasks.json
@@ -12,9 +13,13 @@ class TasksController < ApplicationController
   def show
   end
 
+  def events
+    @tasks = Task.where(event_id: params[:id]).limit(nil)
+  end
+
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = @event.tasks.new
   end
 
   # GET /tasks/1/edit
@@ -24,8 +29,8 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
-
+    @task = @event.tasks.new(task_params)
+    @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -65,6 +70,10 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def set_event
+      @event = Event.find_by(id: params[:event_id]) || Event.find(task_params[:event_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

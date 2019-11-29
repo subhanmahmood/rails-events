@@ -5,13 +5,9 @@
       %ul
         - @task.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :user
-    = f.text_field :user
   .field
     = f.label :event
-    = f.text_field :event
+    = f.hidden_field :event_id, value: @task.event.id
   .field
     = f.label :title
     = f.text_field :title

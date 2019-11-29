@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    member do
+      get 'events'
+    end
+  end
   resources :events
   get 'accounts/sign_in'
   get 'accounts/sign_up'
