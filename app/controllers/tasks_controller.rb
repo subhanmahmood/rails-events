@@ -13,10 +13,6 @@ class TasksController < ApplicationController
   def show
   end
 
-  def events
-    @tasks = Task.where(event_id: params[:id]).limit(nil)
-  end
-
   # GET /tasks/new
   def new
     @task = @event.tasks.new

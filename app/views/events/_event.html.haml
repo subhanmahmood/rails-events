@@ -1,0 +1,17 @@
+%div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title
+      Name: 
+      %span= link_to event.title, event
+      = link_to event, method: :delete, data: { confirm: 'Are you sure?' } do
+        %span.glyphicon.glyphicon-trash.right
+      = link_to edit_event_path(event) do
+        %span.glyphicon.glyphicon-pencil.right
+      
+  %div.panel-body
+    %b What?
+    %p= event.description
+    %b Where?
+    %p= event.location
+    %b When?
+    %p= event.date
