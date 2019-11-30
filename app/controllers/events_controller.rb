@@ -11,8 +11,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @tasks = Task.where(event_id: params[:id]).limit(nil)
   end
-
+  
   # GET /events/new
   def new
     @event = Event.new  
