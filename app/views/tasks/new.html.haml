@@ -1,5 +1,12 @@
-%h1 New task
 
-= render 'form'
+%div.container
+  %div.row.justify-content-center
+    %div.col-md-4.align-self-center
+      %div.card.login-panel
+        %div.card-body
 
-= link_to 'Back', tasks_path
+          %h1 New task
+
+          = render 'form'
+
+      = link_to 'Back', tasks_path

@@ -6,19 +6,15 @@
         - @task.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :event
     = f.hidden_field :event_id, value: @task.event.id
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: 'form-control'
   .field
     = f.label :deadline
-    = f.datetime_select :deadline
+    = f.datetime_select :deadline, class: 'form-control'
   .field
     = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :status
-    = f.check_box :status
+    = f.text_area :description, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary full-width'

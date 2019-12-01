@@ -1,7 +1,11 @@
-%h1 Editing event
 
-= render 'form'
+%div.container
+  %div.row.justify-content-center
+    %div.col-md-4.align-self-center
+      %h1 Editing event
 
-= link_to 'Show', @event
-\|
-= link_to 'Back', events_path
+      = render 'form'
+
+      = link_to 'Show', @event
+      \|
+      = link_to 'Back', events_path

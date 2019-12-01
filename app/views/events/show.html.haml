@@ -1,14 +1,19 @@
 %p#notice= notice
 %div.container
   %div.row.justify-content-center
-    %div.col-5.align-self-center
+    %div.col-md-5.align-self-center
       = render @event
-      
-      %h4 
-        Tasks
-        = link_to new_task_path(event_id: @event) do
-          %span.glyphicon.glyphicon-plus.right
-      %div.list-group
-        = render @tasks       
 
-
+      %div.tasks-container
+        %div.d-flex.justify-content-between.flex-row
+          %h4.margin-bottom-none.align-middle{:style => "padding-top: 5px"} Tasks
+          = link_to new_task_path(event_id: @event) do
+            %i.material-icons.md-36.align-middle add
+        %div.list-group
+          = render @tasks 
+          - if @tasks.length == 0
+            %div.text-center
+              %p.text-muted 
+                There are no tasks for this event
+                %br/
+                Add some?

@@ -1,7 +1,13 @@
-%h1 Editing task
 
-= render 'form'
+%div.container
+  %div.row.justify-content-center
+    %div.col-md-4.align-self-center
+      %div.card.login-panel
+        %div.card-body
+          %h1 Editing task
 
-= link_to 'Show', @task
-\|
-= link_to 'Back', tasks_path
+          = render 'form'
+
+          = link_to 'Show', @task
+          \|
+          = link_to 'Back', tasks_path
