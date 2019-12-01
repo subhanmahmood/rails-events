@@ -2,9 +2,10 @@
   
   
   %div.container
-    %div.row
-      %div.col-md-4.col-md-offset-4
-        %h1 All events
-        = render @events
-        = link_to new_event_path do
-          %button.btn.btn-primary New
+    %div.d-flex.justify-content-between.flex-row
+      %h1.margin-bottom-none All events
+      = link_to new_event_path do
+        %i.material-icons.md-48 add
+    %div.border-top.my-2
+    %div.card-columns
+      = render @events

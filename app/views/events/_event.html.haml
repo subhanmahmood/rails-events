@@ -1,17 +1,20 @@
-%div.panel.panel-default
-  %div.panel-heading
-    %h3.panel-title
-      Name: 
-      %span= link_to event.title, event
-      = link_to event, method: :delete, data: { confirm: 'Are you sure?' } do
-        %span.glyphicon.glyphicon-trash.right
-      = link_to edit_event_path(event) do
-        %span.glyphicon.glyphicon-pencil.right
-      
-  %div.panel-body
+
+
+%div.card
+  %div.card-header
+    = event.title
+  %div.card-body
     %b What?
-    %p= event.description
+    %p.card-text= event.description
     %b Where?
-    %p= event.location
+    %p.card-text= event.location
     %b When?
-    %p= event.date
+    %p.card-text= event.date
+    %footer.blockquote-footer
+      by
+      %cite{:title => event.user.email}= event.user.email
+    - if request.path == "/events"
+      
+      = link_to event_path(event), class: 'btn btn-light full-width' do
+        Go to event
+    

@@ -1,15 +1,15 @@
-
-%a.list-group-item
-  %h4.list-group-item-heading= task.title
-  %p.list-group-item-text
-    %span= task.description
-  %p.list-group-item-text
-    %span= task.deadline
-  %p.list-group-item-text
-    %span= task.user.email
-  - if current_user.id == task.user_id
-    %div.row.task-buttons
-      %div.col-md-6
-        = link_to "EDit", edit_task_path(task), class: 'btn btn-primary full-width' 
-      %div.col-md-6
-        %button.btn.btn-danger.full-width Delete
+%div.card
+  %div.card-body
+    %div.d-flex.justify-content-between.flex-row
+      %h5.card-title.align-self-start
+        = task.title
+      -if current_user.id == task.user.id
+        %div.d-flex.flex-row
+          = link_to edit_task_path(task) do
+            %i.material-icons.right edit
+          = link_to task, method: :delete, data: { confirm: 'Are you sure?' } do
+            %i.material-icons.right delete
+    %p.card-text= task.description
+    %footer.blockquote-footer
+      by
+      %cite{:title => task.user.email}= task.user.email
