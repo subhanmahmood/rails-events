@@ -13,7 +13,7 @@
     %footer.blockquote-footer
       by
       %cite{:title => event.user.email}= event.user.email
-    - if request.path == "/events"
+    - if request.path == "/events" || request.path == "/"
       
       = link_to event_path(event), class: 'btn btn-light full-width' do
         Go to event

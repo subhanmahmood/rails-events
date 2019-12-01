@@ -1,9 +1,7 @@
-%div
-  
-  
+%div  
   %div.container.events-container
     %div.d-flex.justify-content-between.flex-row
-      %h1.margin-bottom-none All events
+      %h1.margin-bottom-none Your Events
       = link_to new_event_path do
         %i.material-icons.md-48 add
     %div.border-top.my-2
@@ -12,6 +10,6 @@
     - if @events.length == 0
       %div.text-center
         %p.text-muted 
-          There are no events yet
+          You haven't created any events yet
           %br/
           Add some?

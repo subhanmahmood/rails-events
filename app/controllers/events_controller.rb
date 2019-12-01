@@ -13,6 +13,10 @@ class EventsController < ApplicationController
   def show
     @tasks = Task.where(event_id: params[:id]).limit(nil)
   end
+
+  def mine
+    @events = Event.where(user_id: current_user.id)
+  end
   
   # GET /events/new
   def new
