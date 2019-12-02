@@ -1,9 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :user
-  belongs_to :event
-  after_initialize :init
-
-  def init
-    self.status ||= false
-  end
+  belongs_to :user, required: false
+  belongs_to :event, required: false
+  validates :title, presence: true
 end
