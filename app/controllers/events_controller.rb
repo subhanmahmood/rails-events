@@ -12,6 +12,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @tasks = Task.where(event_id: params[:id]).limit(nil)
+    @messages = Message.where(event_id: params[:id])
+    @message = Message.new
   end
 
   def mine

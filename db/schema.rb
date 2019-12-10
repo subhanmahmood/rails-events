@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_184810) do
+ActiveRecord::Schema.define(version: 2019_12_10_152308) do
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -23,11 +23,21 @@ ActiveRecord::Schema.define(version: 2019_11_27_184810) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_messages_on_event_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.string "title"
-    t.datetime "deadline"
+    t.string "title", null: false
+    t.datetime "deadline", null: false
     t.text "description"
     t.boolean "status"
     t.datetime "created_at", null: false

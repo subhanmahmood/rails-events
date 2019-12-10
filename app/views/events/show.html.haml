@@ -1,5 +1,5 @@
 
-%div.container
+%div.container.event-container
   %div.row.justify-content-center
     %div.col-md-5.align-self-center
       = render @event
@@ -17,3 +17,20 @@
                 There are no tasks for this event
                 %br/
                 Add some?
+    %div.col-md-3
+      %h2 
+        Messages
+
+      %form{:id => "message_form"}
+        %input.hidden{:value => @event.id, :name => "event_id"}
+        %div.input-group.mb-3
+          %input.form-control{:id => "message_input", :placeholder => "Message", :name => "message"}
+          %div.input-group-append
+            %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"} Send
+      - @messages.each do |message|
+        %div.message
+          %p= message.body
+        %footer.blockquote-footer
+          
+          %cite{:title => message.user.email}= message.user.email
+    

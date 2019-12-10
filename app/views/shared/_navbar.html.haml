@@ -1,6 +1,6 @@
 
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"}= t('app_title')
+  %a.navbar-brand{:href => "/"}= t('app_title')
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -8,8 +8,6 @@
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
     %ul.navbar-nav.ml-auto
-      %li.nav-item
-        = request.path
       %li.nav-item.active
         = link_to "Home", root_path, class: 'nav-link'
       %li.nav-item

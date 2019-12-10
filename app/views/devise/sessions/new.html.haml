@@ -5,7 +5,7 @@
       %div.card.login-panel
         %div.card-body
           %h2 Log in
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = form_for(resource, as: resource_name, url: session_path(resource_name), html: {:id => "validate_form"}) do |f|
             %div.form-group
               = f.label :email
               = f.email_field :email, autofocus: true, class: 'form-control', autocomplete: "email"
