@@ -11,6 +11,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    respond_to do |format|
+      format.js {render layout: false} # Add this line to you respond_to block
+    end
     @tasks = Task.where(event_id: params[:id]).limit(nil)
     @messages = Message.where(event_id: params[:id])
     @message = Message.new
@@ -39,6 +42,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }

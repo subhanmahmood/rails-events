@@ -8,9 +8,10 @@
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
     %ul.navbar-nav.ml-auto
-      %li.nav-item.active
+      
+      %li{:class => ("nav-item" + " active" if current_page?(root_path))}
         = link_to "Home", root_path, class: 'nav-link'
-      %li.nav-item
+      %li{:class => ("nav-item" + " active" if current_page?(events_path || event_path || edit_events_path))}
         = link_to "Events", events_path, class: 'nav-link'
       - if user_signed_in?
         %li.nav-item.dropdown
@@ -20,10 +21,11 @@
             = link_to "Edit Profile", edit_user_registration_path(current_user), class: 'dropdown-item'
             .dropdown-divider
             = link_to "Logout", destroy_user_session_path, class: 'dropdown-item', method: 'delete'
-              
       - else
         %li.nav-item
           = link_to new_user_session_path, class: 'nav-link' do
             = t('login')
+- if current_page?(root_path)
+  %h2 sgsdf  
       
     

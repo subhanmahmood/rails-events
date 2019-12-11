@@ -52,8 +52,10 @@ $(document).ready(function() {
             dataType: 'json',
             data: message,
             success: function(data) {
-                       console.log(data)
-                     },
+							console.log(data) 
+							$("#message_input").val("")  
+							location.reload()       
+          	},
             error: function(err) {
                 console.log(err)
             }
