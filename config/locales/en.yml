@@ -36,4 +36,8 @@ en:
   
   home:
     home:
+    
+    request_contact:
+      no_email: "enter a valid email"
+      email_sent: "your message was sent successfully"
 

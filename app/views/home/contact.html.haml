@@ -1,2 +1,26 @@
-%h1 Home#contact
-%p Find me in app/views/home/contact.html.haml
+
+%div.container
+  %div.row.justify-content-center
+    %div.col-md-5.align-self-center
+      %div.card.edit-profile-card
+        %div.card-body
+          %h1 Contact Us
+          = form_tag request_contact_path, method: 'post' do
+            .field
+              = label_tag :name, "Name"
+              = text_field_tag :name, '', title: "Enter Name", class: 'form-control'
+            .field
+              = label_tag :email, "Email"
+              = email_field_tag :email, '', title: "Email", class: 'form-control'
+            .field
+              = label_tag :telephone, "Telephone"
+              = telephone_field_tag :telephone, '', title: "Telephone ", class: 'form-control'
+
+            .field
+              = label_tag :message, "Message"
+              = text_field_tag :message, '', title: "Message ", class: 'form-control'
+
+            = submit_tag "Submit", class: "btn btn-primary"
+          
+          
+          %p Find me in app/views/home/contact.html.haml
