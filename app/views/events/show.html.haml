@@ -1,7 +1,7 @@
 
 %div.container.event-container
   %div.row.justify-content-center
-    %div.col-md-5.align-self-center
+    %div.col-md-5
       = render @event
 
       %div.tasks-container
@@ -18,14 +18,23 @@
                 %br/
                 Add some?
     %div.col-md-3
-      %h2 
-        Messages
 
-      %form{:id => "message_form"}
-        %input.hidden{:value => @event.id, :name => "event_id"}
-        %div.input-group.mb-3
-          %input.form-control{:id => "message_input", :placeholder => "Enter message", :name => "message"}
-          %div.input-group-append
-            %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"} Send
-      = render @messages
+
+      %div.card
+        %div.card-header
+          %div.d-flex.justify-content-between.flex-row
+            %h5.card-title.align-self-start
+              Messages
+            
+        %div.card-body
+          = render @messages
+        %form{:id => "message_form"}
+          %input.hidden{:value => @event.id, :name => "event_id"}
+          %div.input-group
+            %input.form-control{:id => "message_input", :placeholder => "Enter message", :name => "message"}
+            %div.input-group-append
+              %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"} Send
+          
+
+      
       
