@@ -4,11 +4,13 @@
       %h5.card-title.align-self-start
         = task.title
       -if current_user.id == task.user.id
-        %div.d-flex.flex-row
-          = link_to edit_task_path(task) do
-            %i.material-icons.right edit
-          = link_to task, method: :delete, data: { confirm: 'Are you sure?' } do
-            %i.material-icons.right delete
+        .dropdown
+          %a#dropdownMenuLink.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdownMenuLink"}
+            = link_to edit_task_path(task), class: "dropdown-item" do
+              Edit
+            = link_to task, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do
+              Delete
     %p.card-text= task.description
     %footer.blockquote-footer
       by

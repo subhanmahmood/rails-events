@@ -19,7 +19,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     get new_task_url(event_id: @event)
     assert_response :success
-  end
+end
 
   test "should create task" do
     sign_in @user

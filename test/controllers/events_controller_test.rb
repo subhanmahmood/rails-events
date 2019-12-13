@@ -6,7 +6,6 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @event = events(:one)
-    @user = users(:one)
     sign_in users(:one)
   end
 

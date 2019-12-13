@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    @event = events(:one)
     @message = messages(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -11,7 +15,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_message_url
+    get new_message_url(event_id: @event)
     assert_response :success
   end
 

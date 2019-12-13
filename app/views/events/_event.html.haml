@@ -26,6 +26,6 @@
       %cite{:title => event.user.email}= event.user.email
     - if request.path == "/events" || request.path == "/"
       
-      = link_to event_path(event), class: 'btn btn-light full-width' do
+      = link_to event_path(event), class: 'btn btn-light full-width mt-2' do
         Go to event
     

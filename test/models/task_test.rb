@@ -20,7 +20,8 @@ class TaskTest < ActiveSupport::TestCase
     task = Task.new
 
     task.title = 'My Task'
-    task.event = @event
+    task.deadline = "2019-12-11 17:25:00"
+    task.event_id = @event
 
     task.save
     assert task.valid?
