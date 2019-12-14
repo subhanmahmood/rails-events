@@ -6,7 +6,8 @@ class TaskTest < ActiveSupport::TestCase
   # end
 
   setup do
-    @event = events(:one)
+    @user = users(:one)
+    @event = events(:two)
   end
 
   test 'should not save empty task' do
@@ -17,13 +18,11 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test 'should save valid task' do
-    task = Task.new
-
-    task.title = 'My Task'
-    task.deadline = "2019-12-11 17:25:00"
-    task.event_id = @event
-
+    task = Task.new(title: "Ttile", deadline: "2019-12-23", description: "sfasfsfdf", status: false)
+    task.user_id = @user.id
+    task.event_id = @event.id
     task.save
+    
     assert task.valid?
   end
 end

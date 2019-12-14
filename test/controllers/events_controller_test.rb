@@ -5,7 +5,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @event = events(:one)
+    @event = events(:two)
     sign_in users(:one)
   end
 

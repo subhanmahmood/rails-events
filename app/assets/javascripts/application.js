@@ -21,19 +21,6 @@
 
 
 $(document).ready(function() {
-    console.log("DOM loaded")
-    /*$("#submit_message").click(function() {
-        $.ajax({
-            url: '/messages/mew',
-            type: 'post',
-            dataType: 'json',
-            data: $("#message_form").serialize(),
-            success: function(data) {
-                console.log(data)
-                $("#message_input").val("");
-            }
-        })
-    })*/
 
     $("form#message_form").submit(function(e){
         e.preventDefault();
@@ -52,36 +39,13 @@ $(document).ready(function() {
             dataType: 'json',
             data: message,
             success: function(data) {
-							console.log(data) 
-							$("#message_input").val("")  
-							location.reload()       
+                console.log(data);
+                $("#message_input").val("");
+                location.reload();       
           	},
             error: function(err) {
                 console.log(err)
             }
         });
-    })
-})
-
-jQuery(document).ready(function() {
-    jQuery("#validate_form").validate({
-        rules: {
-           
-           email: {
-              required: true,
-              email: true,//add an email rule that will ensure the value entered is valid email id.
-              maxlength: 255,
-           },
-           password: {
-               required: true,
-               minlength:6
-           }
-        },
-        messages: {
-            u_email: 'Enter a valid email'
-         },
-        submitHandler: function(form) {
-            form.submit();
-        }
-     });
- });
+    });
+});

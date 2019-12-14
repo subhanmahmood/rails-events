@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_152308) do
+ActiveRecord::Schema.define(version: 2019_12_14_155426) do
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "location"
-    t.date "date"
+    t.date "date", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_events_on_title"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.text "body"
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_messages_on_event_id"

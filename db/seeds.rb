@@ -20,3 +20,8 @@ user2.save
 
 event1 = Event.where(title: "This is an event").first
 event1.delete if event1
+
+event1 = Event.create(user_id: user1.id, title: "This is an event", location: "Someplace somewhere", date: "2019-12-16", description: "I don't know, something's happening");
+event1.save
+
+
