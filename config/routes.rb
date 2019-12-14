@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :messages
+  
   resources :tasks
+  resources :messages, only: [:create, :update, :destroy]
   resources :events do
     collection do
       get 'mine'
