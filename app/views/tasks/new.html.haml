@@ -5,8 +5,8 @@
       %div.card.login-panel
         %div.card-body
 
-          %h1 New task
+          %h1= I18n.t('task.new.title')
 
           = render 'form'
 
-      = link_to 'Back', tasks_path
+      = link_to 'Back', event_path(@event)

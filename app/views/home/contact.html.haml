@@ -4,7 +4,7 @@
     %div.col-md-5.align-self-center
       %div.card.edit-profile-card
         %div.card-body
-          %h1 Contact Us
+          %h1= I18n.t('home.contact.title')
           = form_tag request_contact_path, method: 'post' do
             .field
               = label_tag :name, "Name"
@@ -21,6 +21,3 @@
               = text_field_tag :message, '', title: "Message ", class: 'form-control'
 
             = submit_tag "Submit", class: "btn btn-primary"
-          
-          
-          %p Find me in app/views/home/contact.html.haml

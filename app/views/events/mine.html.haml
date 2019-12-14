@@ -1,7 +1,7 @@
 %div  
   %div.container.events-container
     %div.d-flex.justify-content-between.flex-row
-      %h1.margin-bottom-none Your Events
+      %h1.margin-bottom-none= I18n.t('event.mine.title')
       = link_to new_event_path do
         %i.material-icons.md-48 add
     %div.border-top.my-2
@@ -10,6 +10,6 @@
     - if @events.length == 0
       %div.text-center
         %p.text-muted 
-          You haven't created any events yet
+          = I18n.t('event.common.no_events')
           %br/
-          Add some?
+          = I18n.t('event.common.add_some')

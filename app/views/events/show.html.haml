@@ -14,17 +14,15 @@
           - if @tasks.length == 0
             %div.text-center
               %p.text-muted 
-                There are no tasks for this event
+                = I18n.t('event.show.no_tasks')
                 %br/
-                Add some?
+                = I18n.t('event.common.add_some')
     %div.col-md-3
-
-
       %div.card
         %div.card-header
           %div.d-flex.justify-content-between.flex-row
             %h5.card-title.align-self-start
-              Messages
+              = I18n.t('event.show.messages_title')
             
         %div.card-body
           = render @messages
@@ -33,7 +31,7 @@
           %div.input-group
             %input.form-control{:id => "message_input", :placeholder => "Enter message", :name => "message"}
             %div.input-group-append
-              %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"} Send
+              %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"}= I18n.t('event.show.messages_submit')
           
 
       

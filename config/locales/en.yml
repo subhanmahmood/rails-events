@@ -30,14 +30,50 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: Hello world
 
   app_title: Events
-  
+  common:
+    edit: Edit
+    delete: Delete
   home:
+    title: "Home"
     home:
-    
+    contact:
+      title: "Contact Us"
     request_contact:
-      no_email: "enter a valid email"
-      email_sent: "your message was sent successfully"
+      no_email: enter a valid email
+      email_sent: your message was sent successfully
+  
+  event:
+    title: All Events
+    common:
+      no_events: There are no events yet
+      add_some: Add some?
+    event:
+      what: What?
+      where: Where?
+      when: When?
+      event_link: Go to event
+    edit: 
+      title: Editing Event
+    mine:
+      title: Your events
+    new:
+      title: New event
+    show:
+      no_tasks: There are no tasks for this event
+      messages_title: Messages
+      messages_submit: Send
+  
+  message:
+    edit:
+      title: "Editing Message"
+
+  task:
+    new:
+      title: New Task
+      save: Save
+    edit: 
+      title: Editing task
 

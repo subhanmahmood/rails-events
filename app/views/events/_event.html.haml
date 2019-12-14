@@ -11,15 +11,15 @@
           %a#dropdownMenuLink.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdownMenuLink"}
             = link_to edit_event_path(event), class: "dropdown-item" do
-              Edit
+              = I18n.t('common.edit')
             = link_to event, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do
-              Delete
+              = I18n.t('common.delete')
   %div.card-body
-    %b What?
+    %b= I18n.t('event.event.what')
     %p.card-text= event.description
-    %b Where?
+    %b= I18n.t('event.event.where')
     %p.card-text= event.location
-    %b When?
+    %b= I18n.t('event.event.when')
     %p.card-text= event.date
     %footer.blockquote-footer
       by
@@ -27,5 +27,5 @@
     - if request.path == "/events" || request.path == "/"
       
       = link_to event_path(event), class: 'btn btn-light full-width mt-2' do
-        Go to event
+        = I18n.t('event.event.event_link')
     
