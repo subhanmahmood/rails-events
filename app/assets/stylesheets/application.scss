@@ -24,6 +24,11 @@
   display: none;
 }
 
+#messages {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
 .message-name {
   font-size: 80%;
   color: #6c757d;

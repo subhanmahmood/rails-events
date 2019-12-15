@@ -12,4 +12,9 @@ $messageContainer.append($messageBubble)
 $div.append($messageContainer)
 $div.append($sender)
 $container.append($div)
+$(".message-input").val("")
+
 $("#messages").append($container)
+
+var elem = document.getElementById('messages');
+elem.scrollTop = elem.scrollHeight;

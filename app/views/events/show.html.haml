@@ -33,7 +33,7 @@
             .field
               = f.hidden_field :event_id, value: @event.id
             
-            = f.text_area :body, placeholder: "Enter message here", class: "form-control"
+            = f.text_area :body, placeholder: "Enter message here", class: "form-control message-input"
             .input-group-append
               = f.submit I18n.t('event.show.messages_submit'), class: "btn btn-outline-secondary"
           
