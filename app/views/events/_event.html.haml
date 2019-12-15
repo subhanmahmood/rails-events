@@ -14,6 +14,7 @@
               = I18n.t('common.edit')
             = link_to event, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do
               = I18n.t('common.delete')
+              
   %div.card-body
     %b= I18n.t('event.event.what')
     %p.card-text= event.description
