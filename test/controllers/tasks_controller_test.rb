@@ -21,7 +21,7 @@ end
       post tasks_url, params: { task: { deadline: @task.deadline, description: @task.description, event_id: @task.event_id, status: @task.status, title: @task.title, user_id: @task.user_id } }
     end
 
-    assert_redirected_to task_url(Task.last)
+    assert_redirected_to event_url(@event)
   end
 
   test "should get edit" do
