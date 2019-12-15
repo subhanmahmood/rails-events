@@ -24,15 +24,19 @@
             %h5.card-title.align-self-start
               = I18n.t('event.show.messages_title')
             
-        %div.card-body
+        %div.card-body{:id => "messages"}
           = render @messages
-        %form{:id => "message_form"}
-          %input.hidden{:value => @event.id, :name => "event_id"}
-          %div.input-group
-            %input.form-control{:id => "message_input", :placeholder => "Enter message", :name => "message"}
-            %div.input-group-append
-              %button.btn.btn-outline-secondary{:id => "submit_message", :name => "body"}= I18n.t('event.show.messages_submit')
+        
+        = form_for @message, remote: true do |f|
+          .input-group
+            
+            .field
+              = f.hidden_field :event_id, value: @event.id
+            
+            = f.text_area :body, placeholder: "Enter message here", class: "form-control"
+            .input-group-append
+              = f.submit I18n.t('event.show.messages_submit'), class: "btn btn-outline-secondary"
           
 
       
-      
+       

@@ -1,0 +1,15 @@
+var senderId = #{@message.user_id}
+var userId = #{current_user.id}
+var divClass = "d-flex flex-row" + (senderId === userId ? "-reverse" : "")
+var $container = $("<div>", {"class": divClass})
+var $div = $("<div>")
+var $messageContainer = $("<div>", {"class": divClass})
+var $messageBubble = $("<div>", {"class": "message"})
+var $message = $("<p>").text("#{@message.body}")
+var $sender = $("<p>", {"class": "message-name"}).text("#{@message.user.email}")
+$messageBubble.append($message)
+$messageContainer.append($messageBubble)
+$div.append($messageContainer)
+$div.append($sender)
+$container.append($div)
+$("#messages").append($container)
