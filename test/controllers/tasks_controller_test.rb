@@ -9,12 +9,6 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test "should get index" do
-    sign_in @user
-    get tasks_url
-    assert_response :success
-  end
-
   test "should get new" do
     sign_in @user
     get new_task_url(event_id: @event)
@@ -28,12 +22,6 @@ end
     end
 
     assert_redirected_to task_url(Task.last)
-  end
-
-  test "should show task" do
-    sign_in @user
-    get task_url(@task)
-    assert_response :success
   end
 
   test "should get edit" do

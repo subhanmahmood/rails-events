@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require jquery
 //= require jquery_ujs
 //= require popper
@@ -20,11 +21,13 @@
 //= require_tree .
 
 
+
+
 $(document).ready(function() {
 
     $("form#message_form").submit(function(e){
+        var currentPath = window.location;
         e.preventDefault();
-        console.log($('form#message_form').serialize())
         var body = $("#message_input").val();
         var event = $("input[name=event_id]").val()
         var message = {
@@ -41,7 +44,7 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 $("#message_input").val("");
-                location.reload();       
+                window.location = currentPath     
           	},
             error: function(err) {
                 console.log(err)

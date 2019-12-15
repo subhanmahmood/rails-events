@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :tasks
+  resources :tasks, except: [:index, :show]
   resources :messages, only: [:create, :update, :destroy]
   resources :events do
     collection do
