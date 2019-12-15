@@ -20,9 +20,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-
-
 $(document).ready(function() {
 
     $("form#message_form").submit(function(e){
