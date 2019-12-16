@@ -32,7 +32,7 @@ end
 
   test "should update task" do
     sign_in @user
-    patch task_url(@task), params: { task: { deadline: @task.deadline, description: @task.description, event_id: @task.event_id, status: @task.status, title: @task.title, user_id: @task.user_id } }
+    patch task_url(@task), params: { task: { deadline: @task.deadline, description: @task.description, event_id: @task.event_id,   status: @task.status, title: @task.title, user_id: @task.user_id } }
     assert_redirected_to task_url(@task)
   end
 

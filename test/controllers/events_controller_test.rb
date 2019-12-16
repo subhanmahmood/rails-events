@@ -7,6 +7,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @event = events(:two)
     sign_in users(:one)
+    
   end
 
   test "should get index" do
